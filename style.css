@@ -1,0 +1,938 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto',sans-serif;
+}
+h1 {
+    font-size: 50px;
+    line-height: 64px;
+    color: black;
+  }
+  
+  h2 {
+    font-size: 40px;
+    line-height: 54px;
+    color: whitesmoke;
+  }
+  
+  h4 {
+    font-size: 20px;
+    color: whitesmoke;
+  }
+  
+  h6 {
+    font-weight: 900;
+    font-size: 12px;
+  }
+  p {
+    font-size: 16px;
+    color:aliceblue;
+    margin: 15px 0 20px 0;
+    font-weight: 600;
+  }  
+.section-p1{
+    padding: 40px 80px;
+    color: black;
+}
+body {
+    width:100%;
+}
+/*Header Start*/
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #222;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+    /*45->47 là làm thanh nav không di chuyển khi ta cuộn trang, dán cứng(sticky) ở đó lun*/
+  
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+}
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 900;
+    color: aliceblue;
+}
+#navbar li a i:hover{
+    color: black;
+}
+#navbar li a:hover
+{
+    color: black;
+    transition: 0.2s ease-in-out;
+    background-color: white;
+    border-radius: 5px;
+    /*Di chuột vào + bấm vào thì phần tử đổi màu*/
+}
+
+/*CSS để tạo menu dropdown cho cửa hàng*/
+#navbar li ul.dropdownmenu li {
+    display: block;
+}
+#navbar li ul.dropdownmenu {
+    background-color: #222;
+    position: absolute;
+    z-index: 1;
+    display: none;
+}
+#navbar li:hover ul.dropdownmenu {
+    display: block;
+    padding-top: 10px;
+}
+#navbar li:hover ul.dropdownmenu li {
+    margin: 10px 0;
+}
+
+#banner .banner1 {
+    margin: 40px 0;
+}
+/*Home page*/
+#hero {
+    background-image: url(Images/ip14.jpg);
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-origin: content-box;
+    background-position: top 25% right 0;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+#hero h2{
+    padding-top: 15px;
+}
+#hero h1{
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+#hero button{
+    background-color: whitesmoke;   
+    color: black;
+    border-radius: 10px;
+    border: 0;
+    padding: 14px 80px 14px 65px;
+    cursor: pointer;
+    font-weight:900;
+    font-size: 15px;
+    background-repeat: no-repeat;
+}
+#hero button:hover{
+    color: red;
+    background-color: white;
+    transition: 0.4s ease-in-out;
+    transform: scale(120%);
+}
+
+/* Tạo từng khung  riêng biệt và định hình cho mục tính năng*/
+#feature .fe-box
+{
+    width: 180px;
+    text-align:center;
+    padding: 25px 15px;
+    border: solid /*Mặc định solid viền dày 2px*/ #cce7d0;
+    border-radius: 4px;
+    margin: 15px 0;
+}
+#fe-tit {
+    text-align: center;
+    color: #1a1a1a;
+    font-size: 40px;
+    margin-top: 50px;
+    margin-bottom: -30px;
+}
+/*Tạo phần background có màu cho phần thẻ h6*/
+#feature .fe-box h6 {
+    display: inline-block; /*Khóa cứng nó hiển thị trên 1 dòng, bao hết màu của background chứ k bị thừa ra*/
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius: 3px;
+    color: #088178;
+    background-color: #fddde4;
+}
+/*Thay đổi màu background của từng mục trong danh sách feature*/
+#feature .fe-box:nth-child(2) h6{
+    background-color: #cce7d0;
+}
+#feature .fe-box:nth-child(3) h6{
+    background-color: #d1e8f2;
+}
+#feature .fe-box:nth-child(4) h6{
+    background-color: #f6dbf6;
+}
+#feature .fe-box:nth-child(5) h6{
+    background-color: #fff2e5;
+    
+}
+
+
+/*Làm các mục feature box ngang hàng nhau*/
+#feature{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/*CSS phần các sản phẩm nổi bật*/
+#product1{
+    text-align: center;
+}
+#product1 .pro-container
+{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+    flex-wrap: wrap;
+
+}
+#product1 .pro
+{
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    margin-top: 30px;
+    border: 1px solid #CFCFCF;
+    border-radius: 20px;
+    cursor:pointer;
+    position: -webkit-sticky;
+    transition: 0.2s ease-in-out; /*Thiết lập thời gian và kiểu chuyển động của phần tử*/
+}
+#product1 .pro:hover {
+    transform:translateY(-10px); /*Thay đổi vị trí lên trục Y của phần tử khi di chuột vào*/
+}
+
+#product1 .pro img{
+    width: 95%; /*Làm cho ảnh thu phóng vừa với bộ border*/
+}
+#product1 .pro .des
+{ /*CSS phần miêu tả nhanh của sản phẩm*/
+    text-align: start;
+    padding: 10px 0;
+}
+#product1 .pro .des span{
+    /*CSS phần loại sản phẩm*/
+    color: grey;
+    font-size: 12px;
+}
+#product1 .pro .des i {
+    font-size: 12px;
+    color: rgb(243,181,25);
+}
+#product1 .pro .des h5 {
+ padding-top: 7px;
+ color: #1a1a1a;
+ font-size: 14px;
+}
+#product1 .pro .des h4 {
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 900;
+    color: #990000	;
+}
+#product1 .pro .cart {
+    width: 40px;
+    height: 40px;
+    line-height:40px;
+    border-radius: 50px;
+    background-color:#FF6600 ;
+    color: #FFFFFF;
+}
+#banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(Images/cskh.jpg);
+    background-position: bottom;
+}
+#banner h4{
+    color: bisque;
+    font-size: 16px;
+}
+#banner h2{
+    color: bisque;
+    padding: 10px 0;
+    font-size: 40px;
+}
+#banner span {
+    color: red;
+}
+button.nor{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+#banner button:hover{
+    font-size: 15px;
+    color: white;
+    background-color: red;
+    transition: 0.3s ease-in-out;
+}
+.hi img{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: -30px;
+}
+#sm-banner {
+    display: flex;
+    justify-content: space-around;
+}
+#sm-banner .banner-box span {
+    color: whitesmoke;
+    font-weight: 900;
+    padding-bottom: 20px;
+}
+#sm-banner .banner-box button {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+}
+#sm-banner .banner-box button:hover {
+    background-color: white;
+    color: red;
+    font-size: 18px;
+    transition: 0.3s ease-in-out;
+    outline: none;
+    border: none;
+}
+#sm-banner .banner-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px;
+    padding-left: 30px;
+    background-position: center;
+    background-image: url(Images/banner/b1.jpg);
+    background-size: cover;
+    min-width: 540px ;
+    height: 50vh;
+}
+#sm-banner .banner-2 { 
+    background-image: url(Images/banner/2.jpeg);
+}
+#sm-banner .banner-2 h2{ 
+    color: white;
+}
+
+#sm-banner .banner-box h2, #sm-banner .banner-box h4 {
+    color:whitesmoke;
+}
+#newsletter
+{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    background-image: url(Images/form.jpg);
+    background-position: 20% 30%;
+}
+#newsletter p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #818ea0
+}
+#newsletter p span {
+    color: #ffbd27;
+}
+#newsletter input{
+    height: 3.125rem;
+    padding: 0 1.25em;
+    font-size: 14px;
+    width:60%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none ;
+}
+#newsletter button {
+    white-space: nowrap;
+    height: 3.125rem;
+    background-color: #FF6600;
+    color: white;
+
+}
+#newsletter button:hover {
+    transition: 0.3s ease;
+    transform:scale(120%);
+    color: black;
+}
+
+#newletter .inputmail
+{
+    display: flex;
+    width: 40%;
+}
+.section-p1 .col span {
+    font-size: 15px;
+    font-weight: 900;
+    
+}
+footer {
+    background-color: #1C1C1C;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+footer .logo {
+    margin-bottom: 30px;
+}
+footer h4 {
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+footer p {
+    font-size: 15px;
+    margin: 0 0 8px 0;
+}
+footer a {
+    font-size: 13px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    color: grey;
+}
+footer .follow {
+    margin-top: 20px;
+}
+footer .follow i {
+    padding-right: 10px;
+    cursor: pointer;
+}
+footer .install .row img {
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+}
+footer .follow i:hover,
+footer .follow a:hover
+{
+    transition: 0.3s ;
+    transform: scale(150%);
+}
+footer .in4 a:hover {
+    color: white;
+    transition: 0.2s;
+}
+footer .copyright
+{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*CSS cho trang bán Iphone*/
+#iphoneheader {
+    background-image: url(Images/Header/iphone.jpg);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    background-position-y: -270px;
+
+}
+#iphoneheader h2,#iphoneheader p {
+    color: whitesmoke;
+}
+#pagination {
+    text-align: center;   
+}
+#pagination a{
+    text-decoration: none;
+    background-color: #1C1C1C;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+#pagination a:hover{
+    transition: 0.15s;
+    color: white;
+    background-color: #FF6600 ;
+}
+
+/*Single Product*/
+#prodetail .single-pro-image{
+    width: 40%;
+    margin-right:50px ;
+} 
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+}
+.small-img-col {
+    flex-basis: 24%;
+    cursor: pointer;
+}
+#MainImage{
+    margin-top: 40px;
+}
+#prodetail{
+    display: flex;
+    margin-top: 20px;
+}
+#prodetail .single-pro-details{
+    width:50%;
+    padding-top: 30px;
+}
+#prodetail .single-pro-details h4{
+    padding: 20px 0 10px 0;
+    color: black;
+}
+#prodetail .single-pro-details h2{
+    font-size: 26px;
+    color: red ;
+}
+#prodetail .single-pro-details select {
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+#prodetail .single-pro-details input {
+    width: 47px;
+    height: 50px;
+    padding-left:10px ;
+    font-size: 16px;
+    margin-right: 10px;
+}
+#prodetail .single-pro-details input:focus {
+    outline: none;
+}
+#prodetail .single-pro-details button {
+    padding: 15px 5px;
+    font-size: 15px;
+    font-weight: 900;
+    background-color: #FF6600;
+    color: white;
+    border-radius: 10px;
+}
+#prodetail .single-pro-details button:hover {
+    color: black;
+    background-color: #FF6600;
+    cursor: pointer;
+}
+#prodetail .single-pro-details span{
+    line-height: 30px;
+}
+
+/*CSS cho trang bán ipad*/
+#ipadheader {
+    background-image: url(Images/Header/ipad.jpg);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    background-position-y: -370px;
+
+}
+#ipadheader h2,#ipadheader p {
+    color: #FFC125;
+    font-weight: 800;
+}
+/**CSS cho trang blog page */
+#blog-header {
+    background-image: url(Images/Header/blog.jpg);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    background-position-y: -180px;
+
+}
+#blog {
+    padding: 150px 150px 0 150px;
+}
+#blog .blog-box {
+    display: flex;
+    align-items: center ;
+    width: 100%;
+    position: relative;
+    padding-bottom: 95px;
+}
+#blog .blog-img{ 
+    width: 50%;
+    margin-right: 40px;
+}
+#blog img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    
+}
+#blog .blog-details {
+    width: 50%;
+}
+#blog .blog-details a{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 900;
+    color: #000;
+    position: relative;
+    transition: 0.3s;
+}
+#blog .blog-details h4 {
+    color: #000;
+}
+#blog .blog-details p {
+    color: #818ea0;
+    font-weight: 400;
+}
+#blog .blog-details a::after {
+    content: "";
+    width: 50px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    top: 6px;
+    right: -40px;
+    transition: 0.3s;
+
+}
+#blog .blog-details a:hover {
+    color: #FF6600;
+}
+#blog .blog-details a:hover:after {
+    background-color: #FF6600;
+}
+#blog .blog-box h1 {
+    position: absolute;
+    top: -52px;
+    left: 0;
+    font-size: 70px;
+    font-weight: 900;
+    color: #c9cbce;
+    z-index: -9;
+}
+
+/*CSS Trang giới thiệu*/
+.about-header {
+    background-image: url(Images/About/van-phong-lam-viec.jpg);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    background-position-y: -400px;
+}
+#about-head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#about-head img{
+    width: 50%;
+    height: auto;
+}
+#about-head div{
+    padding-left: 40px;
+}
+#about-head abbr, #about-head p {
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+}
+#about-head marquee {
+    margin-top: 10px;
+}
+#about-body {
+    display: flex;
+    flex-direction: column;
+}
+#about-body p, #about-end p{
+    color: black;
+    font-weight: 500;
+}
+/*CSS trang Liên hệ */
+.contact-header {
+    background-image: url(Images/Contact/contact-us-banner.jpg);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    background-position-y: -350px;
+}
+
+#contact-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row ;
+}
+#contact-details .details {
+    width: 40%;
+}
+#contact-details .details span,
+#form-details form span {
+    font-size: 14px;
+}
+#contact-details .details h2,
+#form-details form h2 {
+    font-size: 26px;
+    line-height: 35px;
+    padding: 20px 0;
+    color: #000;
+}
+#contact-details .details h3 {
+    font-size: 16px;
+    padding-bottom: 15px ;
+    color: #000;
+}
+#contact-details .details li {
+    list-style: none;
+    display: flex;
+    padding: 10px 0;
+
+}
+#contact-details .details li i {
+    font-size: 14px;
+    padding-right: 22px;
+}
+#contact-details .details li p {
+    font-size: 14px;
+    color: #FF7600;
+    margin: 0;
+    font-weight: 500;
+}
+#contact-details .map {
+    width: 55%;
+    height: 400px;   
+}
+#contact-details .map iframe {
+    width: 100%;
+    height: 100%;   
+}
+#form-details form {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+#form-details form input,
+#form-details form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+}
+#form-details form button {
+    background-color: #FF7600;
+
+}
+#form-details .people div {
+    padding-bottom: 25px;
+    display: flex;
+    align-items: flex-start;
+}
+#form-details .people div img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+#form-details .people div p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 25px;
+    color: #000;
+    font-weight: 500;
+}
+#form-details .people div p span {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    
+}
+#form-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    padding: 80px;
+    border: 1px solid #DDDDDD;
+}
+/*CSS trang cart*/
+.cart-header {
+    background-image: url(Images/cart.jpg);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    background-position-y: -120px;
+}
+#cart table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+#cart table img {
+    width: 70px;
+}
+#cart table td:nth-child(1) {
+    width: 100px;
+    text-align: center;
+}
+#cart table td:nth-child(2) {
+    width: 150px;
+    text-align: center;
+}
+#cart table td:nth-child(3) {
+    width: 200px;
+    text-align: center;
+}
+#cart table td:nth-child(4),
+#cart table td:nth-child(5) ,
+#cart table td:nth-child(6)  {
+    width: 140px;
+    text-align: center;
+}
+#cart table td:nth-child(5) input {
+    width: 70px;
+    padding: 10px 5px 10px 15px;
+}
+#cart table thead {
+    border: 1px solid #e2e9e1;
+    border-right: none;
+    border-left: none ;
+}
+#cart table thead td {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 18px 0;
+}
+#cart table tbody tr td {
+    padding-top: 15px;
+} 
+#cart table tbody td {
+    font-size: 14px;
+}
+#cart-add {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#coupon {
+    width: 50%;
+    margin-bottom: 30px;
+}
+#coupon h3,
+#subtotal h3 {
+    padding-bottom: 15px;
+}
+#coupon input {
+    padding: 10px 20px;
+    outline: none;
+    width: 60%;
+    border: 1px solid #e2e9e1;
+}
+#coupon button,
+#no2{
+    color: whitesmoke ;
+    background-color: #FF6600;
+    padding: 12px 20px;
+    margin-left: 20px;
+}
+#coupon button:hover,
+#subtotal button:hover
+ {
+    transform: scale(120%);
+    transition: 0.3s ease-in-out ;
+}
+#subtotal {
+    width: 50%;
+    margin-bottom: 30px;
+    border: 1px solid #e2e9e1;
+    padding: 30px;
+}
+#subtotal table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+#subtotal table td{
+    width: 50%;
+    border: 1px solid #e2e9e1;
+    font-size: 14px;
+    padding: 10px;
+}
+#no1 {
+    border: 1px solid ;
+    padding: 12px 20px;
+
+}
+#shopheader {
+    background-image: url(Images/Header/shop.jpg);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    background-position-y: -270px;
+
+}
+#shopheader h2, #shopheader p {
+    font-weight: 900;
+}
